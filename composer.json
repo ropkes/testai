@@ -1,0 +1,24 @@
+{
+    "name": "sanitex-api",
+    "description": "Backend API for Android eOrder SalesApp",
+    "keywords": ["sanitex-api"],
+    "homepage": "http://sanitex.eorder.eu",
+    "authors": [
+        {
+            "name": "Dycode Software",
+            "email": "info@dycode.net",
+            "homepage": "http://www.dycode.net/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "slim/slim": "2.*",
+     	"gabordemooij/redbean": "*",
+        "zircote/swagger-php": "master-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Swagger": "vendor/zircote/swagger-php/library/Swagger"
+        }
+    }
+}

@@ -1,0 +1,1 @@
+{"apiVersion":"0.1","resourcePath":"/bdtest","apis":[{"path":"/dbtest","operations":[{"httpMethod":"GET","summary":"Check if db working","nickname":"checkdb"}]}]}

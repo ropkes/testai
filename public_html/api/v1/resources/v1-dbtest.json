@@ -1,0 +1,18 @@
+{
+    "basePath": "/v1",
+    "swaggerVersion": "1.1",
+    "apiVersion": "0.1",
+    "resourcePath": "/v1/dbtest",
+    "apis": [
+        {
+            "path": "http://88.119.193.169:8001/v1/dbtest.{format}",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Check if db working",
+                    "nickname": "checkdb"
+                }
+            ]
+        }
+    ]
+}
