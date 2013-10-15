@@ -13,16 +13,22 @@
     //if($_GET['secret'] != 'CR6truCRUZA9ukEzEmePhep5gase8E')
      //   exit();
 
-    function getBranch()
-    {
-        //$payload = file_get_contents('php://input');
-        //        }
-        $payload = json_decode(stripslashes($_REQUEST['payload']));
-        return $payload;
+//    function getBranch()
+//    {
+        $payload = file_get_contents('php://input');
+//        return $payload;
+//    }
+
+    if($payload){
+        file_put_contents('../gitreq.txt', print($payload), FILE_APPEND);
+    } else {
+        echo "nothing";
     }
 
-//    echo "-----------------------||||||||||>>>>>>>>>>" . getBranch();
-    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
+
+
+
+//    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
 
 	// The commands
 	$commands = array(
