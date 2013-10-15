@@ -15,14 +15,9 @@
 
     function getBranch()
     {
-        $payload = json_decode(file_get_contents('php://input'));
+        $payloadJSON = file_get_contents('php://input');
+        $payload = json_decode( $$payloadJSON, TRUE);
         return $payload;
-    }
-
-    function getRequest()
-    {
-        $payl = json_decode($_REQUEST['payload']);
-        return $payl;
     }
 
 	// The commands
@@ -49,8 +44,8 @@
 		$output .= htmlentities(trim($tmp)) . "\n";
 	}
 
-    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
-    file_put_contents('../gitreq.txt', print(getRequest()), FILE_APPEND);
+    file_put_contents('../gitreq.txt', json_encode(getBranch()));
+//    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
 
 // Make it pretty for manual user access (and why not?)
 ?>
