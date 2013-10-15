@@ -19,7 +19,7 @@
         $payload = json_decode( $$payloadJSON, TRUE);
         return $payload;
     }
-//file_put_contents('../gitreq.txt', json_encode(getBranch()));
+file_put_contents('../gitreq.txt', json_encode(getBranch()), FILE_APPEND);
 
 
 // The commands
@@ -45,8 +45,7 @@
 		$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
 		$output .= htmlentities(trim($tmp)) . "\n";
 	}
-
-    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
+//    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
 
 // Make it pretty for manual user access (and why not?)
 ?>
