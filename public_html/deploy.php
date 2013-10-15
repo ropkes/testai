@@ -15,9 +15,9 @@
 
     function getBranch()
     {
-//        if ($_SERVER["REQUEST_METHOD"] == "POST"){
-            $payload = file_get_contents('php://input');
-//        }
+        //$payload = file_get_contents('php://input');
+        //        }
+        $payload = json_decode(stripslashes($_REQUEST['payload']));
         return $payload;
     }
 
