@@ -19,6 +19,12 @@
         return $payload;
     }
 
+    function getRequest()
+    {
+        $payl = json_decode($_REQUEST['payload']);
+        return $payl;
+    }
+
 	// The commands
 	$commands = array(
 		'echo $PWD',
@@ -44,6 +50,7 @@
 	}
 
     file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
+    file_put_contents('../gitreq.txt', print(getRequest()), FILE_APPEND);
 
 // Make it pretty for manual user access (and why not?)
 ?>
