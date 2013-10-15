@@ -26,8 +26,6 @@
     }
 
 
-
-
 //    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
 
 	// The commands
