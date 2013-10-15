@@ -15,13 +15,13 @@
 
     function getBranch()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
-            $payload = print_r($_POST, 1);
-        }
+//        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            $payload = print($_SERVER["REQUEST_METHOD"]);
+//        }
         return $payload;
     }
 
-//    echo getBranch();
+    echo getBranch();
     file_put_contents('../gitreq.txt', print_r(getBranch(), true), FILE_APPEND);
 
 	// The commands
