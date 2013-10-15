@@ -13,18 +13,12 @@
     if($_GET['secret'] != 'CR6truCRUZA9ukEzEmePhep5gase8E')
         exit();
 
-    try {
-        function getBranch()
-        {
-            $webhook = file_get_contents('http://requestb.in/1j3d7cd1');
-//            $webhook_array = json_decode($webhook, true);
-            $payload = json_decode($webhook, true);//(stripslashes($_REQUEST['payload']));
-            echo isset($payload);
-            return $payload;
+    function getBranch()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            $payload = print_r($_POST, 1);
         }
-    }
-    catch(Exception $e) {
-        echo "no request";
+        return $payload;
     }
 
 //    echo getBranch();
