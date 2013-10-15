@@ -19,13 +19,13 @@
 //        $payload = json_decode( $$payloadJSON, TRUE);
 //        return $payload;
 //    }
-try
-{
+//try
+//{
     $payload = json_decode($_REQUEST['payload']);
-}catch (Exception $e)
-{
-    echo 'not found';
-}
+//}catch (Exception $e)
+//{
+//    echo 'not found';
+//}
 
 file_put_contents('../gitreq.txt', print_r($payload, true), FILE_APPEND);
 
