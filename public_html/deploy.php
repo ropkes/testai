@@ -10,18 +10,18 @@
     putenv('COMPOSER_HOME=' . '/usr/bin/php');
 
 // secure script from outside with dummy secret in url
-    if($_GET['secret'] != 'CR6truCRUZA9ukEzEmePhep5gase8E')
-        exit();
+    //if($_GET['secret'] != 'CR6truCRUZA9ukEzEmePhep5gase8E')
+     //   exit();
 
     function getBranch()
     {
 //        if ($_SERVER["REQUEST_METHOD"] == "POST"){
-            $payload = print($_SERVER["REQUEST_METHOD"]);
+            $payload = file_get_contents('php://input');
 //        }
         return $payload;
     }
 
-    echo getBranch();
+//    echo "-----------------------||||||||||>>>>>>>>>>" . getBranch();
     file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
 
 	// The commands
