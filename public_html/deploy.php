@@ -22,7 +22,7 @@
     }
 
     echo getBranch();
-    file_put_contents('../gitreq.txt', print_r(getBranch(), true), FILE_APPEND);
+    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
 
 	// The commands
 	$commands = array(

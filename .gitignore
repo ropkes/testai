@@ -18,3 +18,5 @@ env/.vagrant
 public_html/api/api-docs.json
 public_html/api/resources
 .idea/workspace.xml
+
+gitreq.txt
