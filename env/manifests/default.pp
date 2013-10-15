@@ -45,8 +45,8 @@ apache::dotconf { 'custom':
 
 apache::module { 'rewrite': }
 
-apache::vhost { 'sanitex-api':
-  server_name   => 'sanitex-api',
+apache::vhost { 'test-api':
+  server_name   => 'test-api',
   serveraliases => [
 ],
   docroot       => '/var/www/html/public_html/',

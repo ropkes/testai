@@ -8,24 +8,27 @@
 	 */
 
     putenv('COMPOSER_HOME=' . '/usr/bin/php');
+
 // secure script from outside with dummy secret in url
     if($_GET['secret'] != 'CR6truCRUZA9ukEzEmePhep5gase8E')
         exit();
 
     function getBranch()
     {
-        return 'branch name';
+        $payload = json_decode($_REQUEST['payload']);
+        return $payload;
     }
 
-    echo getBranch();
+//    echo getBranch();
+    file_put_contents('../gitreq.txt', print_r($payload, true), FILE_APPEND);
 
 	// The commands
 	$commands = array(
 		'echo $PWD',
 		'whoami',
-        'git reset --hard',
-		'git pull',
-        'composer update -d ..',
+//        'git reset --hard',
+//		'git pull',
+//        'composer update -d ..',
 		'php '.__DIR__.DIRECTORY_SEPARATOR.'../vendor/zircote/swagger-php/swagger.phar '.__DIR__.DIRECTORY_SEPARATOR.'../app/route/ -o '.__DIR__.DIRECTORY_SEPARATOR.'api/v1'
 //		'git status',
 //		'git submodule sync',

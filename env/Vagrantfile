@@ -10,10 +10,10 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |v|
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--memory", 1024]
-    v.customize ["modifyvm", :id, "--name", "sanitex-api"]
+    v.customize ["modifyvm", :id, "--name", "test-api"]
   end
 
-  config.vm.hostname = "sanitex-api"
+  config.vm.hostname = "test-api"
 
   config.vm.synced_folder ".." , "/var/www/html/", id: "vagrant-root"
   
