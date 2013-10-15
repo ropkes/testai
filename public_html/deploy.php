@@ -13,27 +13,21 @@
     //if($_GET['secret'] != 'CR6truCRUZA9ukEzEmePhep5gase8E')
      //   exit();
 
-//    function getBranch()
-//    {
+    function getBranch()
+    {
         $payload = file_get_contents('php://input');
-//        return $payload;
-//    }
-
-    if($payload){
-        file_put_contents('../gitreq.txt', print($payload), FILE_APPEND);
-    } else {
-        echo "nothing";
+        return $payload;
     }
 
 
-//    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
+
 
 	// The commands
 	$commands = array(
 		'echo $PWD',
 		'whoami',
 //        'git reset --hard',
-//		'git pull',
+		'git pull',
 //        'composer update -d ..',
 		'php '.__DIR__.DIRECTORY_SEPARATOR.'../vendor/zircote/swagger-php/swagger.phar '.__DIR__.DIRECTORY_SEPARATOR.'../app/route/ -o '.__DIR__.DIRECTORY_SEPARATOR.'api/v1'
 //		'git status',
@@ -51,8 +45,11 @@
 		$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
 		$output .= htmlentities(trim($tmp)) . "\n";
 	}
- 
-	// Make it pretty for manual user access (and why not?)
+
+    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
+
+
+// Make it pretty for manual user access (and why not?)
 ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
