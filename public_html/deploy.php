@@ -46,7 +46,7 @@
 		$output .= htmlentities(trim($tmp)) . "\n";
 	}
 
-//    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
+    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
 
 // Make it pretty for manual user access (and why not?)
 ?>
