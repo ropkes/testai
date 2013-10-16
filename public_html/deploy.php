@@ -13,22 +13,18 @@
     //if($_GET['secret'] != 'CR6truCRUZA9ukEzEmePhep5gase8E')
      //   exit();
 
-//    function getBranch()
-//    {
-//        $payloadJSON = file_get_contents('php://input');
-//        $payload = json_decode( $$payloadJSON, TRUE);
-//        return $payload;
-//    }
-//try
-//{
-    $payload = json_decode($_REQUEST['payload']);
-//}catch (Exception $e)
-//{
-//    echo 'not found';
-//}
-
-file_put_contents('../gitreq.txt', print_r($payload, true), FILE_APPEND);
-
+    function getBranch()
+    {
+        try
+        {
+            $payload = json_decode($_REQUEST['payload']);
+            return $payload;
+        }
+        catch (Exception $e)
+        {
+            return $payload='';
+        }
+    }
 
 // The commands
 	$commands = array(
@@ -43,7 +39,11 @@ file_put_contents('../gitreq.txt', print_r($payload, true), FILE_APPEND);
 //		'git submodule update',
 //		'git submodule status',
 	);
- 
+
+    if (getBranch()->ref == 'refs/heads/master')
+    {
+        array_push($commands, 'git push remote master:release-branch');
+    }
 	// Run the commands for output
 	$output = '';
 	foreach($commands AS $command){
