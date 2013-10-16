@@ -15,15 +15,8 @@
 
     function getBranch()
     {
-        try
-        {
-            $payload = json_decode($_REQUEST['payload']);
-            return $payload;
-        }
-        catch (Exception $e)
-        {
-            return $payload='';
-        }
+        $payload = @json_decode($_REQUEST['payload']);
+        return $payload;
     }
 
 // The commands
@@ -40,10 +33,11 @@
 //		'git submodule status',
 	);
 
-    if (getBranch()->ref == 'refs/heads/master')
+    if (@getBranch()->ref == 'refs/heads/master')
     {
-        array_push($commands, 'git push remote master:release-branch');
+        array_push($commands, 'git push origin master:release-branch');
     }
+
 	// Run the commands for output
 	$output = '';
 	foreach($commands AS $command){
@@ -53,7 +47,6 @@
 		$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
 		$output .= htmlentities(trim($tmp)) . "\n";
 	}
-//    file_put_contents('../gitreq.txt', print(getBranch()), FILE_APPEND);
 
 // Make it pretty for manual user access (and why not?)
 ?>
