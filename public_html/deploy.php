@@ -33,9 +33,9 @@
 //		'git submodule status',
 	);
 
-    if (strpos(@getBranch()->ref,'refs/heads/mas') !== false)
+    if (strpos(@getBranch()->ref,'refs/heads/release') !== false)
     {
-        array_push($commands, 'git checkout');
+        array_unshift($commands, 'git checkout ' . getBranch()->ref);
     }
 
 	// Run the commands for output
