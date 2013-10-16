@@ -33,9 +33,9 @@
 //		'git submodule status',
 	);
 
-    if (@getBranch()->ref == 'refs/heads/master')
+    if (strpos(@getBranch()->ref,'refs/heads/mas') !== false)
     {
-        array_push($commands, 'git push origin master:release-branch');
+        array_push($commands, 'git checkout');
     }
 
 	// Run the commands for output
